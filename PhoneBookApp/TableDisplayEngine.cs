@@ -1,10 +1,11 @@
 ﻿using ConsoleTableExt;
+using PhoneBookApp.Models;
 
 namespace PhoneBookApp
 {
     internal class TableDisplayEngine
     {
-        internal void DisplayPhoneBook(List<Models.Contact> ListOfTableLines, string[] ColumnNames)
+        internal void DisplayPhoneBook(List<Contact> ListOfTableLines, string[] ColumnNames)
         {
 
             ConsoleTableBuilder

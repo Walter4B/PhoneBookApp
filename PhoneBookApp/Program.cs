@@ -4,7 +4,7 @@
     {
         public static void Main()
         {
-            UserController userController = new UserController();
+            UserCommands userController = new UserCommands();
 
             userController.UserControlls();
         }

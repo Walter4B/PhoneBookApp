@@ -1,24 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.SqlServer;
-using Microsoft.EntityFrameworkCore.Internal;
+﻿using PhoneBookApp.Models;
 
 namespace PhoneBookApp
 {
     internal class DatabaseController
     {
         TableDisplayEngine tableDisplayEngine = new TableDisplayEngine();
-        OutputController outputController = new OutputController();
-        InputController inputController = new InputController();
+        OutputEngine outputController = new OutputEngine();
+        InputEngine inputController = new InputEngine();
 
-        internal void AddEntryToDatabase(string name, string phoneNumber)
+        internal void AddEntryToDatabase()
         {
-            using (var context = new Models.PhoneBookContext())
+            outputController.DisplayMessage("InputName");
+            string name = inputController.GetInputString();
+            outputController.DisplayMessage("InputNumber");
+            string phoneNumber = inputController.GetInputPhoneNumber();
+            using (var context = new PhoneBookContext())
             {
-                var contact = new Models.Contact()
+                var contact = new Contact()
                 {
                     Name = name,
                     PhoneNumber = phoneNumber,
@@ -29,11 +27,17 @@ namespace PhoneBookApp
             }
         }
 
-        internal void UpdateEntryInDatabase(int id, string name, string number)
+        internal void UpdateEntryInDatabase()
         {
-            using (var context = new Models.PhoneBookContext())
+            outputController.DisplayMessage("UpdateChooseID");
+            int id = inputController.GetInputInt();
+            outputController.DisplayMessage("InputName");
+            string name = inputController.GetInputString();
+            outputController.DisplayMessage("InputNumber");
+            string number = inputController.GetInputPhoneNumber();
+            using (var context = new PhoneBookContext())
             {
-                Models.Contact contact = null;
+                Contact contact = null;
                 while (contact == null)
                 {
                     contact = context.Contacts.Where(b => b.Id == id).FirstOrDefault();
@@ -54,26 +58,28 @@ namespace PhoneBookApp
 
         internal void DisplayAllEntries()
         {
-            List<Models.Contact> listOfContacts = new List<Models.Contact>();
+            List<Contact> listOfContacts = new List<Contact>();
             string[] columnNames = new string[] { };
 
-            using (var context = new Models.PhoneBookContext())
+            using (var context = new PhoneBookContext())
             {
                 var contact = context.Contacts.OrderBy(b => b.Id);
 
                 listOfContacts = contact.ToList();
             }
 
-            columnNames = typeof(Models.Contact).GetProperties()
+            columnNames = typeof(Contact).GetProperties()
                                                 .Select(p => p.Name)
                                                 .ToArray();
 
             tableDisplayEngine.DisplayPhoneBook(listOfContacts, columnNames);
         }
 
-        internal void RemoveEntryFromDatabase(int id)
+        internal void RemoveEntryFromDatabase()
         {
-            using (var context = new Models.PhoneBookContext())
+            outputController.DisplayMessage("DeleteContact");
+            int id = inputController.GetInputInt();
+            using (var context = new PhoneBookContext())
             {
                 var contact = context.Contacts.Where(b => b.Id == id).FirstOrDefault();
                 context.Contacts.Remove(contact);

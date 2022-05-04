@@ -1,8 +1,8 @@
 ﻿namespace PhoneBookApp
 {
-    internal class InputController
+    internal class InputEngine
     {
-        OutputController outputController = new OutputController();
+        OutputEngine outputController = new OutputEngine();
         Validator validator = new Validator();
         internal int GetInputInt()
         {

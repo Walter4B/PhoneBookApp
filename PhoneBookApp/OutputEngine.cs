@@ -2,7 +2,7 @@
 
 namespace PhoneBookApp
 {
-    internal class OutputController
+    internal class OutputEngine
     {
         private readonly IConfiguration configuration = GetConfig();
 
