@@ -1,0 +1,10 @@
+﻿{
+  "MainMenu": "\n What would you like to do? \n Type 0 to exit the application. \n Type 1 to add a contact. \n Type 2 to delete a contact. \n Type 3 to list all contacts in the phonebook.",
+
+  "InputName": "Please input the name of the contact.",
+  "InputNumber": "Please input the phone number.",
+
+  "DeleteContact":  "Chose id of the contact you wish to delete.",
+
+  "InvalidInput": "Invalid input, please try again."
+}
