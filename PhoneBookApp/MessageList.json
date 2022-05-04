@@ -1,10 +1,14 @@
 ﻿{
-  "MainMenu": "\n What would you like to do? \n Type 0 to exit the application. \n Type 1 to add a contact. \n Type 2 to delete a contact. \n Type 3 to list all contacts in the phonebook.",
+  "MainMenu": "\n What would you like to do? \n Type 0 to exit the application. \n Type 1 to create a contact. \n Type 2 to to remove a contact. \n Type 3 to update a contatct. \n Type 4 to display all contacts in the phonebook.",
+  "OutOfRange": "Number you have inputed is outside of range of options",
+
+  "UpdateChooseID": "Please choose ID of the entry you wish to update.",
+  "UpdateNoID":  "The ID you chose does not exist. Please enter a valid ID.",
 
   "InputName": "Please input the name of the contact.",
-  "InputNumber": "Please input the phone number.",
+  "InputNumber": "Please input the phone number. \n Format: +1 NXX-NXX-XXXX \n N = 2-9 X = 0-9 \n Example: +1 201-323-4567",
 
-  "DeleteContact":  "Chose id of the contact you wish to delete.",
+  "DeleteContact": "Chose ID of the contact you wish to delete.",
 
   "InvalidInput": "Invalid input, please try again."
 }

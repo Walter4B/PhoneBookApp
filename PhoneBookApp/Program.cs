@@ -1,11 +1,4 @@
-﻿using System;
-using System.Data;
-using ConsoleTableExt;
-using System.Configuration;
-using System.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
-
-namespace PhoneBookApp
+﻿namespace PhoneBookApp
 {
     class Program
     {

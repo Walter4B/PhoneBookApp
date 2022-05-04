@@ -1,11 +1,5 @@
-﻿using System;
-using System.Data;
-using ConsoleTableExt;
-using System.Configuration;
-using System.Data.SqlClient;
+﻿using System.Configuration;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Data.SqlClient;
-
 
 namespace PhoneBookApp.Models
 {
@@ -15,7 +9,8 @@ namespace PhoneBookApp.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["connectionKey"].ConnectionString);
+            
+            optionsBuilder.UseSqlServer(@"Server=(LocalDb)\LocalDBDemo;Database=PhoneBookDB;Trusted_Connection=True;");
         }
     }
 }

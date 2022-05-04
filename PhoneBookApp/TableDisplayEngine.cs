@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ConsoleTableExt;
+﻿using ConsoleTableExt;
 
 namespace PhoneBookApp
 {
     internal class TableDisplayEngine
     {
-        internal void DisplayPhoneBook(List<object> ListOfTableLines, List<string> ColumnNames)
+        internal void DisplayPhoneBook(List<Models.Contact> ListOfTableLines, string[] ColumnNames)
         {
 
             ConsoleTableBuilder
